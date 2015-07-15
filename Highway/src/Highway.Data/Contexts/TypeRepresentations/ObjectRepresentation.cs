@@ -21,7 +21,7 @@ namespace Highway.Data.Contexts.TypeRepresentations
 
         public bool IsType<T1>()
         {
-            return typeof (T1) == Entity.GetType();
+            return Entity is T1;
         }
 
         internal IEnumerable<ObjectRepresentation> AllRelated()
@@ -43,7 +43,7 @@ namespace Highway.Data.Contexts.TypeRepresentations
                 items.AddRange(objectRepresentationBase.AllRelated(evaluatedObjects));
             }
             return items;
-        } 
+        }
 
         public List<ObjectRepresentation> GetObjectRepresentationsToPrune()
         {
